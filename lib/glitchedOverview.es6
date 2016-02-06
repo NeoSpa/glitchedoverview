@@ -5,7 +5,7 @@ class GlitchedOverview {
   constructor(outputName, outputSize, captureTime) {
     this.name = outputName;
     this.size = outputSize;
-    this.interval = parseFloat(captureTime) / parseFloat(this.size[1]);
+    this.interval = parseFloat(captureTime * 60000) / parseFloat(this.size[1]);
   };
 
   set interval(value) {

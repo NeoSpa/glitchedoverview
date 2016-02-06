@@ -7,7 +7,7 @@ var chai = require('chai'),
     GlitchedOverview = require('../lib/glitchedOverview.js');
 
 describe('GlitchedOverviewMethods', function () {
-  var testImage = new GlitchedOverview('aesthetic', [1200, 1200], 240);
+  var testImage = new GlitchedOverview('aesthetic', [1200, 1200], 2);
 
   it('Returns the interval value for the camera capture', function () {
     expect(testImage.interval).to.equal(0.2);
