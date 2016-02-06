@@ -4,7 +4,7 @@
   "description": "A nodejs script to capture an party overview picture with fragments between a time interval.",
   "main": "index.js",
   "scripts": {
-    "test": "babel --presets=es2015 test/tests.es6 --out-file test/tests.js ",
+    "test": "babel --presets=es2015 test/tests.es6 --out-file test/tests.js && mocha test/tests.js",
     "build": "babel --presets=es2015 src/index.es6 --out-file bin/index.js && babel --presets=es2015 lib/glitchedOverview.es6 --out-file lib/glitchedOverview.js;"
 
   },
