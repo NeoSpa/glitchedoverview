@@ -1,4 +1,5 @@
-let imagesnap = require('imagesnap'),
+let imagesnapjs = require('imagesnapjs'),
+    gm = require('gm').subClass({imageMagick: true}),
     fs = require('fs');
 
 class GlitchedOverview {
@@ -23,12 +24,21 @@ class GlitchedOverview {
 
   capture() {
     let tempDate = new Date();
-    let tempFilename = 'temp'+tempDate.getSeconds().toString()+tempDate.getHours().toString()+tempDate.getDate().toString()+tempDate.getMonth().toString()+tempDate.getFullYear().toString()+'.jpg';
-    let tempImageStream = fs.createWriteStream(tempFilename);
-    imagesnap().pipe(tempImageStream);
+    let tempFilename = './tmp/temp'+tempDate.getSeconds().toString()+tempDate.getHours().toString()+tempDate.getDate().toString()+tempDate.getMonth().toString()+tempDate.getFullYear().toString()+'.jpg';
+    imagesnapjs.capture(tempFilename, {}, (err) => {
+      console.log(err ? err : 'Captured '+tempFilename);
+
+    });
 
   };
 
+  cropAndMerge() {
+    fs.readdir('./tmp', (err, files) => {
+      files.forEach((file) => {
+        gm('./tmp/'+file).crop(640, 640, 640, 10);
+      });
+    });
+  }
 
 }
 

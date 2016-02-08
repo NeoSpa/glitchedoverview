@@ -23,7 +23,9 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.3.13",
     "chai": "*",
+    "gm": "^1.21.1",
     "imagesnap": "0.0.0",
+    "imagesnapjs": "0.0.7",
     "mocha": "*"
   }
 }
